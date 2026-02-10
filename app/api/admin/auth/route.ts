@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const COOKIE_NAME = "admin_session";
 
 export async function POST(request: Request) {
   const { password } = (await request.json()) as { password?: string };
-  if (!ADMIN_PASSWORD) {
+  const configured = process.env.ADMIN_PASSWORD?.trim();
+  if (!configured) {
     return NextResponse.json({ error: "Admin şifresi yapılandırılmamış" }, { status: 500 });
   }
-  if (password === ADMIN_PASSWORD) {
+  if (String(password ?? "").trim() === configured) {
     const res = NextResponse.json({ ok: true });
     res.cookies.set(COOKIE_NAME, "1", {
       httpOnly: true,
