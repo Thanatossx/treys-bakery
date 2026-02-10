@@ -11,7 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const ADDRESS = "Hawick, Trey's Bakery";
 const PHONES = [
   { number: "73302114", name: "Lucy" },
-  { number: "64736486", name: "Polina" },
+  { number: "64736486", name: "Polina (Chef)" },
   { number: "5709614", name: "Luna" },
 ];
 const FACEBROWSER_URL = "https://facebrowser-tr.gta.world/pages/treysbakery";
